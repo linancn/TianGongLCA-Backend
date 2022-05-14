@@ -1,4 +1,4 @@
-# CrystaLCABackend[![build](https://github.com/linancn/CrystaLCABackend/actions/workflows/build.yaml/badge.svg)](https://github.com/linancn/CrystaLCABackend/actions/workflows/build.yaml) [![publish](https://github.com/linancn/CrystaLCABackend/actions/workflows/publish.yaml/badge.svg)](https://github.com/linancn/CrystaLCABackend/actions/workflows/publish.yaml)
+# CrystaLCABackend [![build](https://github.com/linancn/CrystaLCABackend/actions/workflows/build.yaml/badge.svg)](https://github.com/linancn/CrystaLCABackend/actions/workflows/build.yaml) [![publish](https://github.com/linancn/CrystaLCABackend/actions/workflows/publish.yaml/badge.svg)](https://github.com/linancn/CrystaLCABackend/actions/workflows/publish.yaml)
 
 ## Environment Prepare
 
