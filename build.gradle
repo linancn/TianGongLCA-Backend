@@ -1,0 +1,35 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'application' 
+}
+
+group = 'org.crystalca'
+version = '0.0.1'
+sourceCompatibility = '11'
+mainClassName = 'org.crystalca.backend.CrystalcaApplication'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
+	implementation 'org.springframework.boot:spring-boot-starter:2.6.2'
+	implementation 'org.springframework:spring-web:5.3.14'
+	implementation "org.postgresql:postgresql:42.3.1"
+	implementation 'org.freemarker:freemarker:2.3.31'
+	implementation 'org.json:json:20220320'
+	implementation 'io.springfox:springfox-swagger2:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+	implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.0'
+	implementation 'com.baomidou:mybatis-plus-generator:3.5.1'
+	implementation 'com.baomidou:dynamic-datasource-spring-boot-starter:3.5.1'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.2'
+}
+
+test {
+	useJUnitPlatform()
+}
