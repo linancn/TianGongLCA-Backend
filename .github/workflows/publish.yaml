@@ -1,4 +1,4 @@
-name: Java CI
+name: publish
 
 on:
   push:
