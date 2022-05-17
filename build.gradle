@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'org.crystalca'
-version = '0.0.3'
+version = '0.0.4'
 sourceCompatibility = '11'
 mainClassName = 'org.crystalca.backend.CrystalcaApplication'
 
