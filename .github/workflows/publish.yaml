@@ -11,7 +11,7 @@ env:
   IMAGE_NAME: linancn/crystalcabackend
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
