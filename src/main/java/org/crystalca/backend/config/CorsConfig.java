@@ -7,14 +7,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
-    private static final String[] ALLOWED_ORIGINS = { "http://localhost:8000" };
-
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins(ALLOWED_ORIGINS).allowedMethods("*").allowedHeaders("*").allowCredentials(true).exposedHeaders().maxAge(3600L);
+                registry.addMapping("/**").allowedOriginPatterns("*").allowedMethods("*").allowedHeaders("*").allowCredentials(true).exposedHeaders().maxAge(3600L);
             }
         };
     }
