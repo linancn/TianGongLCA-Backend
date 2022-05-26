@@ -6,12 +6,12 @@ spring:
       strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
       datasource:
         master:
-          url: jdbc:postgresql://host.docker.internal:55434/postgres?currentSchema=public&stringtype=unspecified
+          url: jdbc:postgresql://db:5432/postgres?currentSchema=public&stringtype=unspecified
           username: postgres
           password: 1357_Qetu
           driver-class-name: org.postgresql.Driver
         slave:
-          url: jdbc:postgresql://host.docker.internal:55435/crystalcaData?currentSchema=public&stringtype=unspecified
+          url: jdbc:db-common://dbcommon:5432/crystalcaData?currentSchema=public&stringtype=unspecified
           username: postgres
           password: 1357_Qetu
           driver-class-name: org.postgresql.Driver
