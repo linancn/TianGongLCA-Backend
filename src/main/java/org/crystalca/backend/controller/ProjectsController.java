@@ -34,6 +34,17 @@ public class ProjectsController {
     @Autowired
     private IProjectsService iProjectsService;
 
+    @GetMapping("/count")
+    public ResponseEntity<Long> getById() {
+        Long c = (long) -1;
+        try {
+            c = iProjectsService.count();
+            return ok(c);
+        } catch (Exception e) {
+            return ok(c);
+        }
+    }
+
     @GetMapping("/get/{id}")
     public ResponseEntity<Projects> getById(@PathVariable Long id) throws Exception {
         return ok(iProjectsService.getById(id));
