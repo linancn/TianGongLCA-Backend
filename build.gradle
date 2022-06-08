@@ -5,10 +5,10 @@ plugins {
 	id 'application' 
 }
 
-group = 'org.crystalca'
+group = 'org.tiangonglca'
 version = '0.0.7'
 sourceCompatibility = '11'
-mainClassName = 'org.crystalca.backend.CrystalcaApplication'
+mainClassName = 'org.tiangonglca.backend.TianGonglcaApplication'
 
 repositories {
 	mavenCentral()

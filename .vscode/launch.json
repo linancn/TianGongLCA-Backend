@@ -8,21 +8,21 @@
             "type": "java",
             "name": "Launch Generator",
             "request": "launch",
-            "mainClass": "org.crystalca.backend.generator.Generator",
+            "mainClass": "org.tiangonglca.backend.generator.Generator",
             "projectName": "backend"
         },
         {
             "type": "java",
             "name": "Launch FastGenerator",
             "request": "launch",
-            "mainClass": "org.crystalca.backend.generator.FastGenerator",
+            "mainClass": "org.tiangonglca.backend.generator.FastGenerator",
             "projectName": "backend"
         },
         {
             "type": "java",
-            "name": "Launch CrystalcaApplication",
+            "name": "Launch TianGonglcaApplication",
             "request": "launch",
-            "mainClass": "org.crystalca.backend.CrystalcaApplication",
+            "mainClass": "org.tiangonglca.backend.TianGonglcaApplication",
             "projectName": "backend"
         }
     ]
