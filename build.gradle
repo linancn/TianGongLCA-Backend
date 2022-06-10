@@ -5,10 +5,10 @@ plugins {
 	id 'application' 
 }
 
-group = 'org.tiangonglca'
-version = '0.0.7'
+group = 'earth.tiangong.lca'
+version = '0.0.8'
 sourceCompatibility = '11'
-mainClassName = 'org.tiangonglca.backend.TianGonglcaApplication'
+mainClassName = 'earth.tiangong.lca.backend.TianGongLCAApplication'
 
 repositories {
 	mavenCentral()

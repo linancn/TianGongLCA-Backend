@@ -8,21 +8,21 @@
             "type": "java",
             "name": "Launch Generator",
             "request": "launch",
-            "mainClass": "org.tiangonglca.backend.generator.Generator",
+            "mainClass": "earth.tiangong.lca.backend.generator.Generator",
             "projectName": "backend"
         },
         {
             "type": "java",
             "name": "Launch FastGenerator",
             "request": "launch",
-            "mainClass": "org.tiangonglca.backend.generator.FastGenerator",
+            "mainClass": "earth.tiangong.lca.backend.generator.FastGenerator",
             "projectName": "backend"
         },
         {
             "type": "java",
-            "name": "Launch TianGonglcaApplication",
+            "name": "Launch TianGongLCAApplication",
             "request": "launch",
-            "mainClass": "org.tiangonglca.backend.TianGonglcaApplication",
+            "mainClass": "earth.tiangong.lca.backend.TianGongLCAApplication",
             "projectName": "backend"
         }
     ]
