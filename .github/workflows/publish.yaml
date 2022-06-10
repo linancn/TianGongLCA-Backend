@@ -8,7 +8,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: linancn/tiangonglcabackend
+  IMAGE_NAME: linancn/tiangonglca-backend
 
 jobs:
   publish:
