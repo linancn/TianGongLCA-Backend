@@ -7,7 +7,7 @@ server:
 # DataSource Config
 spring:
   profiles:
-    active: test
+    active: prod
 
 mybatis-plus:
   configuration:
