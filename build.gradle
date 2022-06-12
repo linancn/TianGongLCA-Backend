@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'earth.tiangong.lca'
-version = '0.0.8'
+version = '0.0.9'
 sourceCompatibility = '11'
 mainClassName = 'earth.tiangong.lca.backend.TianGongLCAApplication'
 

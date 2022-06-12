@@ -11,7 +11,7 @@ spring:
           password: 1357_Qetu
           driver-class-name: org.postgresql.Driver
         slave:
-          url: jdbc:postgresql://dbcommon:5432/tiangonglcaData?currentSchema=public&stringtype=unspecified
+          url: jdbc:postgresql://dbcommon:5432/TianGongData?currentSchema=public&stringtype=unspecified
           username: postgres
           password: 1357_Qetu
           driver-class-name: org.postgresql.Driver
