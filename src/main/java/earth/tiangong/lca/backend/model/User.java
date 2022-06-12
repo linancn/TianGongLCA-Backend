@@ -1,6 +1,8 @@
 package earth.tiangong.lca.backend.model;
 
 public class User {
+    private String name;
+
     private String username;
 
     private String password;
@@ -8,6 +10,14 @@ public class User {
     private Boolean autologin;
 
     private String type;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getUsername() {
         return username;
@@ -40,5 +50,5 @@ public class User {
     public void setType(String type) {
         this.type = type;
     }
-    
+
 }
