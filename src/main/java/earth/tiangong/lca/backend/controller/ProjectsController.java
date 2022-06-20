@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import static org.springframework.http.ResponseEntity.ok;
 
@@ -17,23 +18,25 @@ import earth.tiangong.lca.backend.entity.Projects;
 import earth.tiangong.lca.backend.model.GridData;
 import earth.tiangong.lca.backend.model.ProjectGridFilter;
 import earth.tiangong.lca.backend.service.IProjectsService;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * <p>
  * 前端控制器
  * </p>
- *
+ * 
  * @author TianGongLCA
  * @since 2022-01-07
  */
 
-@Controller()
+@RestController
 @RequestMapping("/project")
 public class ProjectsController {
 
     @Autowired
     private IProjectsService iProjectsService;
 
+    @ApiOperation(value = "project/grid")
     @GetMapping("/count")
     public ResponseEntity<Long> getById() {
         Long c = (long) -1;
@@ -45,11 +48,15 @@ public class ProjectsController {
         }
     }
 
+    @ApiOperation(value = "project/grid")
     @GetMapping("/get/{id}")
     public ResponseEntity<Projects> getById(@PathVariable Long id) throws Exception {
         return ok(iProjectsService.getById(id));
     }
 
+    // @PreAuthorize("hasAnyRole('admin')")
+    @PreAuthorize("@ss.hasAnyRoles( 'admin,user' )")
+    @ApiOperation(value = "project/grid")
     @GetMapping("/grid")
     public ResponseEntity<GridData<Projects>> getGrid(ProjectGridFilter filter) throws Exception {
         filter = filter == null ? new ProjectGridFilter() : filter;
