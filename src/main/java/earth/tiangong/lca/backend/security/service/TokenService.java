@@ -30,18 +30,16 @@ public class TokenService {
     // @Value("${token.secret}")
     private String secret = "abcdefghijklmnopqrstuvwxyz";
 
-    // 令牌有效期（默认30分钟）
+    // 令牌有效期
     // @Value("${token.expireTime}")
-    private int expireTime = 30;
+    private int expireTime = 60;
 
     protected static final long MILLIS_SECOND = 1000;
 
     protected static final long MILLIS_MINUTE = 60 * MILLIS_SECOND;
 
-    private static final Long MILLIS_MINUTE_TEN = 20 * 60 * 1000L;
+    private static final Long MILLIS_MINUTE_TEN = 30 * 60 * 1000L;
 
-    // @Autowired
-    // private RedisCache redisCache;
     @Autowired
     private ISysUsersService iSysUsersService;
 
@@ -70,10 +68,8 @@ public class TokenService {
     /**
      * 删除用户身份信息
      */
-    public void delLoginUser(String token)
-    {
-        if (StringUtils.isNotEmpty(token))
-        {
+    public void delLoginUser(String token) {
+        if (StringUtils.isNotEmpty(token)) {
             iSysUsersService.deleteTokenKey(token);
         }
     }
@@ -87,7 +83,6 @@ public class TokenService {
     public String createToken(LoginUser loginUser) {
         String token = IdUtils.fastUUID();
         loginUser.setToken(token);
-        // setUserAgent(loginUser);
         iSysUsersService.updateTokenKey(loginUser.getUserId(), loginUser.getToken());
         refreshToken(loginUser);
 
@@ -97,17 +92,20 @@ public class TokenService {
     }
 
     /**
-     * 验证令牌有效期，相差不足20分钟，自动刷新缓存
+     * 验证令牌有效期，相差不足30分钟，自动刷新缓存
      *
      * @param loginUser
      * @return 令牌
      */
-    public void verifyToken(LoginUser loginUser) {
+    public Boolean verifyToken(LoginUser loginUser) {
         long expireTime = loginUser.getExpireTime();
         long currentTime = System.currentTimeMillis();
+        if (expireTime - currentTime <= 0)
+            return false;
         if (expireTime - currentTime <= MILLIS_MINUTE_TEN) {
             refreshToken(loginUser);
         }
+        return true;
     }
 
     /**

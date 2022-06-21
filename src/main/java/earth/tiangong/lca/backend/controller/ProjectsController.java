@@ -54,7 +54,6 @@ public class ProjectsController {
         return ok(iProjectsService.getById(id));
     }
 
-    // @PreAuthorize("hasAnyRole('admin')")
     @PreAuthorize("@ss.hasAnyRoles( 'admin,user' )")
     @ApiOperation(value = "project/grid")
     @GetMapping("/grid")

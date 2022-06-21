@@ -61,8 +61,8 @@ public class LoginUser implements UserDetails {
     public LoginUser(SysUsers user) {
         this.userId = user.getId();
         this.token = user.getTokenKey();
-        this.loginTime = user.getLoginTime().getTime();
-        this.expireTime = user.getTokenExpireTime().getTime();
+        this.loginTime = user.getLoginTime() == null ? 0 : user.getLoginTime().getTime();
+        this.expireTime = user.getTokenExpireTime() == null ? 0 : user.getTokenExpireTime().getTime();
 
         this.user = user;
     }

@@ -28,4 +28,9 @@ public class Constants {
     * 令牌前缀
     */
     public static final String LOGIN_USER_KEY = "login_user_key";
+
+    /**
+    * 数据
+    */
+    public static final String DATA = "data";
 }

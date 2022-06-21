@@ -11,7 +11,7 @@ public class SysUserRoles implements Serializable {
 
     private Long roleId;
 
-    private String creater;
+    private Long createrId;
 
     private Timestamp createTime;
 
@@ -33,12 +33,12 @@ public class SysUserRoles implements Serializable {
         this.roleId = roleId;
     }
 
-    public String getCreater() {
-        return creater;
+    public Long getCreaterId() {
+        return createrId;
     }
 
-    public void setCreater(String creater) {
-        this.creater = creater;
+    public void setCreaterId(Long createrId) {
+        this.createrId = createrId;
     }
 
     public Timestamp getCreateTime() {

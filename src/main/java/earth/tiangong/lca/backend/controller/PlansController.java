@@ -27,6 +27,7 @@ import earth.tiangong.lca.backend.service.IModelNodesJsonService;
 import earth.tiangong.lca.backend.service.IPlansService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -100,6 +101,7 @@ public class PlansController {
         return ok(iPlansService.updateModelFlows(data,"deleteByProcess"));
     }
 
+    @PreAuthorize("@ss.hasAnyRoles( 'admin' )")
     @GetMapping("/getgrid")
     public ResponseEntity<GridData<Plans>> getGrid(PlansGridFilter filter) throws Exception {
         filter = filter == null ? new PlansGridFilter() : filter;
