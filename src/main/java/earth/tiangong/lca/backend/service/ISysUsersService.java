@@ -1,8 +1,6 @@
 package earth.tiangong.lca.backend.service;
 
 import earth.tiangong.lca.backend.entity.SysUsers;
-import earth.tiangong.lca.backend.model.GridData;
-import earth.tiangong.lca.backend.model.UserGridFilter;
 
 import java.sql.Timestamp;
 
@@ -17,7 +15,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-02-13
  */
 public interface ISysUsersService extends IService<SysUsers> {
-    GridData<SysUsers> getGrid(UserGridFilter filter);
 
     SysUsers getById(Long id);
 

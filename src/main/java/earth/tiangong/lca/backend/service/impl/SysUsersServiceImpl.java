@@ -2,13 +2,10 @@ package earth.tiangong.lca.backend.service.impl;
 
 import earth.tiangong.lca.backend.entity.SysUsers;
 import earth.tiangong.lca.backend.mapper.SysUsersMapper;
-import earth.tiangong.lca.backend.model.GridData;
-import earth.tiangong.lca.backend.model.UserGridFilter;
 import earth.tiangong.lca.backend.service.ISysUsersService;
 import earth.tiangong.lca.backend.util.ColumnNameUtil;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import java.sql.Timestamp;
@@ -79,25 +76,6 @@ public class SysUsersServiceImpl extends ServiceImpl<SysUsersMapper, SysUsers> i
         sysUser.setTokenKey("");
         sysUser.setTokenExpireTime(new Timestamp(0));
         sysUsersMapper.updateById(sysUser);
-    }
-
-    @Override
-    public GridData<SysUsers> getGrid(UserGridFilter filter) {
-        QueryWrapper<SysUsers> queryWrapper = new QueryWrapper<SysUsers>();
-        queryWrapper.eq(ColumnNameUtil.toDatabaseName("isDeleted"), false);
-        if (filter.getName() != null && !filter.getName().trim().equals(""))
-            queryWrapper.like(ColumnNameUtil.toDatabaseName("name"), filter.getName());
-        if (filter.getSortBy() != null && !filter.getSortBy().equals("")) {
-            if (filter.getOrderBy().equals("desc")) {
-                queryWrapper.orderByDesc(ColumnNameUtil.toDatabaseName(filter.getSortBy()));
-            } else if (filter.getOrderBy().equals("asc")) {
-                queryWrapper.orderByAsc(ColumnNameUtil.toDatabaseName(filter.getSortBy()));
-            }
-        }
-        Page<SysUsers> page = new Page<>(filter.getCurrent(), filter.getPageSize());
-        Page<SysUsers> resultPage = sysUsersMapper.selectPage(page, queryWrapper);
-        GridData<SysUsers> gridData = new GridData<SysUsers>(resultPage.getRecords(), resultPage.getTotal(), resultPage.getCurrent(), resultPage.getSize(), true);
-        return gridData;
     }
 
     @Transactional

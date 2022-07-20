@@ -8,6 +8,7 @@ import static org.springframework.http.ResponseEntity.ok;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import earth.tiangong.lca.backend.entity.SysUsers;
+import earth.tiangong.lca.backend.entity.SysUsersView;
 import earth.tiangong.lca.backend.model.GridData;
 import earth.tiangong.lca.backend.model.UserGridFilter;
 import earth.tiangong.lca.backend.security.exception.AjaxResult;
@@ -16,6 +17,7 @@ import earth.tiangong.lca.backend.security.service.SysLoginService;
 import earth.tiangong.lca.backend.security.util.Constants;
 import earth.tiangong.lca.backend.security.util.SecurityUtils;
 import earth.tiangong.lca.backend.service.ISysUsersService;
+import earth.tiangong.lca.backend.service.ISysUsersViewService;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
@@ -25,6 +27,8 @@ public class UserController {
     private SysLoginService loginService;
     @Autowired
     private ISysUsersService iSysUsersService;
+    @Autowired
+    private ISysUsersViewService iSysUsersViewService;
 
     @PostMapping("/login")
     public AjaxResult login(@RequestBody LoginBody loginBody) {
@@ -53,9 +57,9 @@ public class UserController {
     // @PreAuthorize("@ss.hasAnyRoles( 'admin,user' )")
     @ApiOperation(value = "grid")
     @GetMapping("/grid")
-    public ResponseEntity<GridData<SysUsers>> getGrid(UserGridFilter filter) throws Exception {
+    public ResponseEntity<GridData<SysUsersView>> getGrid(UserGridFilter filter) throws Exception {
         filter = filter == null ? new UserGridFilter() : filter;
-        GridData<SysUsers> result = iSysUsersService.getGrid(filter);
+        GridData<SysUsersView> result = iSysUsersViewService.getGrid(filter);
         return ok(result);
     }
 
@@ -76,8 +80,8 @@ public class UserController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<SysUsers> getByPkid(@PathVariable Long id) {
-        return ok(iSysUsersService.getById(id));
+    public ResponseEntity<SysUsersView> getById(@PathVariable Long id) {
+        return ok(iSysUsersViewService.getById(id));
     }
 
 }
